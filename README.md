@@ -1,4 +1,4 @@
-# RecInt
+# Earthquake recurrence intervals using the Alias method
 Code for calculating recurrence interval and CV from C14 priors.
 
 The code is based on the Alias random sampling scheme:
