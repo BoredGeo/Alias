@@ -8,7 +8,7 @@ The code is based on the <a href=https://en.wikipedia.org/wiki/Alias_method>Alia
 It includes a jupyter notebook with an example of calculating RI and CV that can be changed according to need.
 There are some example .prior files in the `files` directory that were generated with <a href=https://c14.arch.ox.ac.uk/oxcal/OxCal.html>OxCal</a>
 
-The end of the notebook contains a short discussion about how to represent measurements of offset features for ramdom sampling and includes some examples of common distributions. This is intended for people who are interested in using the random sampling to model slip-rate based on earthquake record.
+The end of the notebook contains a short discussion about how to represent measurements of offset features for random sampling and includes some examples of common distributions. This is intended for people who are interested in using the random sampling to model slip-rate based on earthquake record.
 
 MIT License
 Copyright (c) 2019 Neta Wechsler
