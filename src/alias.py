@@ -15,7 +15,10 @@ class Alias:
         """
         assert np.isclose(np.sum(dist), 1.0), "distribution must sum to 1.0"
         self.dist = dist
-        self.table = self._create_table()
+        if len(dist) > 1:
+            self.table = self._create_table()
+        else:
+            self.table = [[0, 1]]
 
     def _create_table(self):
         """ creates the alias table """
@@ -44,7 +47,7 @@ class Alias:
                 under.append(over.pop(0))
         return alias_table
 
-    def sample(self):
+    def _sample(self):
         """ one random sample from the discrete distribution
 
         Returns
@@ -56,6 +59,22 @@ class Alias:
         if q < self.table[ind][1]:
             return ind
         return self.table[ind][0]
+
+    def sample(self, n=1):
+        """ n random samples from the discrete distribution
+
+        Parameters
+        ----------
+        n : number of samples
+
+        Returns
+        -------
+        n randomly drawn sample based on the alias table """
+        assert n > 0, "number of samples must be positive integer"
+        samples = []
+        for i in range(n):
+            samples.append(self._sample())
+        return samples
 
 
 class C14Date(Alias):
@@ -82,4 +101,4 @@ class C14Date(Alias):
         An array of randomly drawn samples based on the alias table,
         translated into years - can have repetition
         """
-        return [self.years[self.sample()] for _ in range(n)]
+        return [self.years[i] for i in self.sample(n)]
